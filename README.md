@@ -4,6 +4,9 @@ There is no facility in game to create a proper 'dedicated server'. The only opt
 
 This is the start of an implementation, through [AutoHotKey](https://www.autohotkey.com/), to automate the process of creating a server from any PC SWS Client (that has started on the main menu screen).
 
+* Press F1 to start the system from the menu screen.
+* Press F4 to stop the script running and reload.
+
 The first settings config stored on the client will be used for the server settings.
 
 Once the client has started a server in spectator mode, it then will repeatedly cycle to start the game as soon as a player joins.
