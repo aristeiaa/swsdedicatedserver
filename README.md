@@ -4,6 +4,8 @@ There is no facility in game to create a proper 'dedicated server'. The only opt
 
 This is the start of an implementation, through [AutoHotKey](https://www.autohotkey.com/), to automate the process of creating a server from any PC SWS Client (that has started on the main menu screen).
 
+If you would like your server to have a name ... like SCL Official | Server #1 - then that needs to be set as your player name.
+
 * Press F1 to start the system from the menu screen.
 * Press F4 to stop the script running and reload.
 
