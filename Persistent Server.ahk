@@ -1,7 +1,10 @@
 #MaxThreadsPerHotkey 4
 CoordMode, ToolTip, Screen
 
+; Configuration Variables
+GamePath = N:\SteamLibrary\steamapps\common\STAR WARS Squadrons\starwarssquadrons_launcher.exe
 
+; F4 reloads the script and resets loops
 *F4::
 Toggle := !Toggle
 Toggle2 := !Toggle2
@@ -11,11 +14,34 @@ Toggle5 := !Toggle5
 reload
 return
 
+; Helpers
+*F5::
+PixelSearch, Px, Py, 0, 0, 300, 300, 0xffffff, 3, Fast
+if ErrorLevel
+    MsgBox, That color was not found in the specified region.
+else
+    MsgBox, A color within 3 shades of variation was found at X%Px% Y%Py%.
 
+return
+
+*F6:: 
+MouseGetPos, MouseX, MouseY
+PixelGetColor, color, %MouseX%, %MouseY%
+MsgBox The color at the current cursor position (%MouseX%,%MouseY%) is %color%.
+return
+
+; F1 starts the script running once loaded
 *F1::
 Toggle1 := !Toggle1
 loop 1
 {
+	; Start the game
+	Run %GamePath%
+
+	; Wait 2m for game to start
+	Sleep 120000
+
+
 	If (not Toggle1) {
         break
 	}
@@ -86,6 +112,7 @@ loop 1
 	Sleep 10000
 
 	; do mouse move
+	MouseClick, right
 	MouseMove, 0, 0
 	Sleep 2000
 
@@ -108,8 +135,6 @@ loop 1
 		
 		Sleep 5000
 	}	
-
-
 }
 Toggle1 := !Toggle1
 return
